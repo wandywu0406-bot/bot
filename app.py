@@ -71,9 +71,9 @@ if st.sidebar.button("✨ 開始生成完整內容"):
                 prompt = f"{theme_map[theme]} 位置在 {location}。為「{shop_name}」寫一段社群文案。優惠：{specialty}。最後附上一行 ImagePrompt: [英文描述詞]"
                 
                 model = genai.GenerativeModel(
-                    model_name="gemini-2.0-flash",
-                    tools=[{"google_search": {}}]
-                )
+    model_name="gemini-2.0-flash",
+    tools=[{"google_search_retrieval": {}}]
+)
                 
                 response = model.generate_content(prompt)
                 st.session_state.generated_text = response.text
